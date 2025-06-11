@@ -9,13 +9,45 @@ terraform {
   required_version = ">= 1.2.0"
 }
 
+data "aws_vpc" "default" {
+  default = true
+}
+
 provider "aws" {
   region = "us-west-2"
+}
+
+resource "aws_security_group" "web_sg" {
+  name        = "web-sg"
+  description = "ssh and minecraft"
+  vpc_id      = data.aws_vpc.default.id
+
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = [var.my_ip]  # ssh from only your own IP
+  }
+
+  ingress {
+    from_port   = 25565
+    to_port     = 25565
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]  # allow all
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
 }
 
 resource "aws_instance" "app_server" {
   ami           = "ami-08d70e59c07c61a3a"
   instance_type = "t3.small"
+  security_groups = [aws_security_group.web_sg.name]
 
   tags = {
     Name = var.instance_name
