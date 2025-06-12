@@ -9,8 +9,9 @@ The configuration will be done with Ansible. The playbook will connect to the in
 
 **Requirements**  
   
-- Installed tools: Ansible, Terraform, AWS CLI  
-- Copy credentials from AWS details page and paste them into a new file at `~/.aws/credentials`
+- Installed the following tools: Ansible, Terraform, AWS CLI  
+- Copied credentials from AWS details page and paste them into a new file at `~/.aws/credentials`
+- Created an AWS key pair 
 
 **Use**  
 
