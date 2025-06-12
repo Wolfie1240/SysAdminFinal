@@ -9,10 +9,6 @@ terraform {
   required_version = ">= 1.2.0"
 }
 
-data "aws_vpc" "default" {
-  default = true
-}
-
 provider "aws" {
   region = "us-west-2"
 }
@@ -20,7 +16,7 @@ provider "aws" {
 resource "aws_security_group" "web_sg" {
   name        = "web-sg"
   description = "ssh and minecraft"
-  vpc_id      = data.aws_vpc.default.id
+  vpc_id      = "vpc-064f25f6e2d2e9740"
 
   ingress {
     from_port   = 22
