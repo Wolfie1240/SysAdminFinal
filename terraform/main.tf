@@ -26,7 +26,7 @@ resource "aws_security_group" "web_sg" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = [var.my_ip]  # ssh from only your own IP
+    cidr_blocks = ["0.0.0.0/0"] # ssh from only your own IP
   }
 
   ingress {
@@ -45,11 +45,13 @@ resource "aws_security_group" "web_sg" {
 }
 
 resource "aws_instance" "app_server" {
-  ami           = "ami-08d70e59c07c61a3a"
+  ami           = "ami-04999cd8f2624f834"
   instance_type = "t3.small"
+  key_name = "DomainController"
   security_groups = [aws_security_group.web_sg.name]
 
   tags = {
     Name = var.instance_name
   }
 }
+
