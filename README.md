@@ -30,4 +30,11 @@ The configuration will be done with Ansible. The playbook will connect to the in
 After running the ansible playbook wait around a minute for the instance to be configured.  
 - Open your Minecraft launcher and go to Multiplayer.  
 - Click on 'Add Server' and paste in the IPv4 address.
-- Double click on the new server to join.  
+- Double click on the new server to join.
+
+
+
+  *Sources*
+https://developer.hashicorp.com/terraform/tutorials/aws-get-started/aws-build
+https://docs.ansible.com/ansible/latest/collections/amazon/aws/ec2_instance_module.html
+https://www.geeksforgeeks.org/basic-ansible-commands/
