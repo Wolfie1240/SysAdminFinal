@@ -9,18 +9,18 @@ The configuration will be done with Ansible. The playbook will connect to the in
 
 **Requirements**  
   
-Installed tools: Ansible, Terraform, AWS CLI
-Copy credentials from AWS details page and paste them into a new file at `~/.aws/credentials`
+- Installed tools: Ansible, Terraform, AWS CLI  
+- Copy credentials from AWS details page and paste them into a new file at `~/.aws/credentials`
 
 **Use**  
 
-Clone the repository to your local system  
-Allow execution of a script with `chmod +x main.sh`  
-Execute the script and follow prompts when given: `./main.sh`  
+- Clone the repository to your local system  
+- Allow execution of a script with `chmod +x main.sh`  
+- Execute the script and follow prompts when given: `./main.sh`  
   
 **Connecting to Minecraft Server**  
 
 After running the main script wait approximately 3 minutes for the instance to be configured.  
-Open your Minecraft launcher and go to Multiplayer.  
-Click on 'Add Server' and paste in the IPv4 address that was printed by `main.sh`  
-Double click on the new server to join.  
+- Open your Minecraft launcher and go to Multiplayer.  
+- Click on 'Add Server' and paste in the IPv4 address that was printed by `main.sh`  
+- Double click on the new server to join.  
