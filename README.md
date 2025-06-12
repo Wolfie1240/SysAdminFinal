@@ -9,7 +9,7 @@ The configuration will be done with Ansible. The playbook will connect to the in
 
 **Requirements**  
   
-- Installed the following tools: Ansible, Terraform, AWS CLI  
+- Installed the following tools: Ansible (core 2.18.6), Terraform (v1.12.1), AWS CLI (2.27.25) 
 - Copied credentials from AWS details page and paste them into a new file at `~/.aws/credentials`
 - Created an AWS key pair 
 
@@ -17,7 +17,12 @@ The configuration will be done with Ansible. The playbook will connect to the in
 
 - Clone the repository to your local system  
 - Allow execution of a script with `chmod +x main.sh`  
-- Execute the script and follow prompts when given: `./main.sh`  
+- `cd terraform`
+- `terraform init`
+- `terraform apply`  Enter 'yes'
+- `cd ../`
+- `./main.sh`
+- `ansible-playbook -i ansible/inventory/hosts.ini ansible/playbook.yml`
   
 **Connecting to Minecraft Server**  
 
